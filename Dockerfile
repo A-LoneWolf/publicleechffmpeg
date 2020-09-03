@@ -1,5 +1,15 @@
+FROM jrottenberg/ffmpeg:latest as xyz
+
 #  creates a layer from the base Docker image.
 FROM python:3.8.5-slim-buster
+
+RUN mkdir -p /usr/local
+WORKDIR /usr/local/
+COPY --from=xyz /usr/local . 
+RUN ln -s /opt/ffmpeg/share/model /usr/local/share/
+RUN ldconfig
+ENV PATH="/opt/ffmpeg/bin:$PATH"
+
 
 WORKDIR /app
 
@@ -52,7 +62,7 @@ RUN apt -qq install -y --no-install-recommends \
     # install coreutils
     coreutils aria2 jq pv \
     # install encoding tools
-    ffmpeg \
+    # ffmpeg \
     # install extraction tools
     mkvtoolnix \
     p7zip rar unrar zip \
