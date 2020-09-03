@@ -28,6 +28,7 @@ GNU/Linux Permissions are highly customisable, and it is generally not required 
 You can still install all the dependencies in your system [with ROOT permissions], but please be aware of the potential issues when doing so. The installed packages may conflict with the system package manager's installed packages, which can cause trouble down the road and errors when upgrading conflicting packages.
 **You have been warned.**
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### The Legacy Way
 Simply clone the repository and run the main file:
